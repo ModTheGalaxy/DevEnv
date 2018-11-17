@@ -15,7 +15,7 @@ Install to a new VM and ensure you run `sudo apt-get update` and `sudo apt-get u
 Copy this series of commands into a terminal: Installs git, downloads scripts and installs them. ## DO NOT LOGIN AS ROOT!!!!
 
 ```
-sudo apt-get update && sudo apt-get install -y -q git && git clone https://bitbucket.org/lasko2112/DevEnv.git && cp -i ~/DevEnv/README.md ~/Documents && mkdir setup && mkdir run && cp -r ~/DevEnv/run/* ~/run/ && chmod -v +x ~/DevEnv/bin/* && cat ~/DevEnv/bin/pathto &>> ~/.bashrc
+sudo apt-get update && sudo apt-get install -y -q git && git clone https://github.com/ModTheGalaxy/DevEnv.git && cp -i ~/DevEnv/README.md ~/Documents && mkdir setup && mkdir run && cp -r ~/DevEnv/run/* ~/run/ && chmod -v +x ~/DevEnv/bin/* && cat ~/DevEnv/bin/pathto &>> ~/.bashrc
 ```
 
 ## Run scripts
