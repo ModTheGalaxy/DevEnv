@@ -39,13 +39,13 @@ gerrit_webport='8080'
 
 
 ##############################################################################
-# Clone repos and checkout a local branch of Core3 origin/unstable
+# Clone repos and checkout a local branch of mtgserver origin/master
 ##############################################################################
 echo "Clone repos"
 mkdir -p ~/workspace > /dev/null 2>&1
 
 cd ~/workspace
-for i in Core3
+for i in mtgserver
 do
   if [ -d $i/.git ]; then
     echo "Repo $i is cloned in ~/workspace/$i"
@@ -73,10 +73,10 @@ if sudo mysql -p123456 -NB -e 'show databases'|grep swgemu > /dev/null 2>&1; the
 else
   sudo ~/DevEnv/bin/./createdb swgemu swgemu 123456      # See createdb script in /home/bin
   echo "Restore blank swgemu database to mysql"
-  sudo mysql -p123456 -e source -e ~/workspace/Core3/MMOCoreORB/sql/swgemu.sql;
+  sudo mysql -p123456 -e source -e ~/workspace/mtgserver/MMOCoreORB/sql/swgemu.sql;
   sudo ~/DevEnv/bin/./createdb mantis swgemu 123456      # See createdb script in /home/bin
   echo "Restore blank mantis database to mysql"
-  sudo mysql -e source -e ~/workspace/Core3/MMOCoreORB/sql/mantis.sql;
+  sudo mysql -e source -e ~/workspace/mtgserver/MMOCoreORB/sql/mantis.sql;
 fi
 
 ##############################################################################
@@ -84,9 +84,9 @@ fi
 # TODO Edit tre path as needed
 ##############################################################################
 echo "Server configuration"
-rundir=~/workspace/Core3/MMOCoreORB/bin/
+rundir=~/workspace/mtgserver/MMOCoreORB/bin/
 runcfg=${rundir}conf/config.lua
-runsrc=~/workspace/Core3/MMOCoreORB/bin/conf/config.lua
+runsrc=~/workspace/mtgserver/MMOCoreORB/bin/conf/config.lua
 if [ -f $runcfg ]; then
   echo "$runcfg already setup"
 else
