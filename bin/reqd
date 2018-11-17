@@ -31,7 +31,7 @@ echo  " The following packages or programs are required. Be prepared to enter pa
 echo
 cd
 if yorn "Would you like to install the required packages now??"; then
-  for i in build-essential default-libmysqlclient-dev liblua5.3-dev libdb5.3-dev libssl-dev cmake git default-jre libssl-dev git mysql-server
+  for i in build-essential default-libmysqlclient-dev liblua5.3-dev libdb5.3-dev libssl-dev cmake git default-jre libssl-dev git mysql-server mysql-workbench
 
       do
         echo " Installing ${i} ... " | tee -a ~/Documents/pkglog.txt
@@ -76,15 +76,15 @@ if [ -f $lua_ins ]; then
       sudo make test | tee -a ~/Documents/pkglog.txt
       cd
     done
-  lua -vyu
+  lua -v
 fi
   
 
 echo "Finalizing install and removing un-needed files."
 
 
-sudo service mysql start
-mysql -h<MYSQLHOST> -u<MYSQLUSER> -p<MYSQLPASSWORD> < sql/swgemu.sql
+#sudo service mysql start
+#mysql -h<MYSQLHOST> -u<MYSQLUSER> -p<MYSQLPASSWORD> < sql/swgemu.sql
 cd $dir
 rm lua-5.3.3.tar.gz
 rm -rf lua-5.3.3
