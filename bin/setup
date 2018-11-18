@@ -131,7 +131,7 @@ else
     sleep 1
   done
 
-  if [ ! -f "${trepath}/swgemu_hotfix.tre" ]; then
+  if [ ! -f "${trepath}/mtg_patch_001_appearance_01.tre" ]; then
     echo "ERROR: It appears you still do not have the *.tre files in ${trepath}"
   fi
 fi
@@ -157,7 +157,7 @@ fi
 echo "Have fun!"
 
 
-if yorn "Would you like to build and run the server now?"; then
+if yorn "Would you like to build the server now?"; then
 	cd ~/workspace/mtgserver/MMOCoreORB/
 	make -j8
 	exit 0
