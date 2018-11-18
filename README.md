@@ -51,7 +51,7 @@ You will need to edit the SQL database with workbench. Easiest way is to set it 
 
 From command line run:
 
-`sudo mysql -u root
+``sudo mysql -u root
 
 use mysql;
 
@@ -61,7 +61,7 @@ UPDATE user SET plugin='mysql_native_password' WHERE User='root';
 
 FLUSH PRIVILEGES;
 
-exit;`
+exit;``
 
 Now open workbench from start/programming.
 
