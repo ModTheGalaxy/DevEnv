@@ -27,10 +27,11 @@ Once the above has completed, run the following from the command line.
 2. ./reqd - Installs required packages and programs including Lua, BerkelyDB, etc.
 
 3. ./setup - Setup of development environment follows these steps:
-   * Clone repos and checkout a local branch of Core3 origin/unstable
+   * Clone repos and checkout a local branch of mtgserver/master
    * Server configuration
+   * For MySQL databases, passwords are [sudo]123456, then 123456 for the two DB's
    * Tre files (They will need to be copied or moved)
-   * Asks if you want to build and run the server. - Currently will fail
+   * Asks if you want to build and run the server.
    
 4. cd ~/workspace/Core3/MMOCoreORB
 
