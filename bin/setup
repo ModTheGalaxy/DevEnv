@@ -59,7 +59,7 @@ done
 
 
 ##############################################################################
-echo "MySQL database"
+echo "MySQL database - Enter password 123456 for all instances here!!!"
 ##############################################################################
 
 if  [[ ! "$(/usr/sbin/service mysql status)" =~ "start/running" ]]
@@ -142,13 +142,18 @@ fi
 ##############################################################################
 echo "Go for it"
 echo
-echo "Now you should be able to build the server with:"
+echo "In a moment, you should be able to build the server."
+echo 
+echo "Should it fail, you can build it by doing the following:"
+echo 
+echo "cd ~/workspace/mtgserver/MMOCoreORB/"
 echo
-echo "swgemu build config"
+echo "make -j8"
 echo
 if [ -f "${trepath}/mtg_patch_001_appearance_01.tre" ]; then
   echo "And if that works you can run the server with:"
-  echo "start"
+  echo "cd ~/workspace/mtgserver/MMOCoreORB/bin"
+  echo "./core3"
 else
   # Without the tre file's they can't finish a full build boot, warn them!
   echo "NOTICE: Until you copy your *.tre files to ${trepath} you will not be able to run the server"
