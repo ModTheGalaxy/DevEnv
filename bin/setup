@@ -91,7 +91,7 @@ if [ -f $runcfg ]; then
   echo "$runcfg already setup"
 else
   sed -e '/TrePath/s!"[^"]*"!"/home/swgemu/workspace/tre"!' $runsrc > $runcfg
-  echo "By default only tatooine and tutorial zones are enabled"
+  echo "By default ALL zones are enabled"
   if yorn "Would you like to edit the default configuration?"; then
     while :
     do
@@ -122,7 +122,7 @@ if [ -f "${trepath}/mtg_patch_001_appearance_01.tre" ]; then
   echo "Looks like your tre files are properly loaded in ${trepath}"
 else
   #ip=`/sbin/ifconfig eth0 | sed -n '/inet addr:/s/.*addr:\([^ ]*\)  .*/\1/p'`
-  echo "NOTE: You must make sure to copy all 54 of the *.tre files from your game disk to: $trepath"
+  echo "NOTE: You must make sure to copy all of the *.tre files from your game disk to: $trepath"
  
 
   while ! yorn "Did you do this yet?"
@@ -158,7 +158,7 @@ echo "Have fun!"
 
 
 if yorn "Would you like to build and run the server now?"; then
-  ~/DevEnv/bin/start
+  ~/workspace/mtgserver/MMOCoreORB/make -j8
   exit 0
 fi
 
