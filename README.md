@@ -31,17 +31,19 @@ Once the above has completed, run the following from the command line.
    * Server configuration
    * For MySQL databases, passwords are [sudo]123456, then 123456 for the two DB's
    * Tre files (They will need to be copied or moved)
-   * Asks if you want to build and run the server.
+   * Asks if you want to build the server.
    
-4. cd ~/workspace/Core3/MMOCoreORB
+4. Will build the server. However if it fails, use the following:
 
-5. build server with `make -j8`
+5. cd ~/workspace/Core3/MMOCoreORB
 
-6. cd ~/workspace/Core3/MMOCoreORB/bin
+6. build server with `make -j8`
 
-7. Run server with `./core3`
+7. cd ~/workspace/Core3/MMOCoreORB/bin
 
-8. you can run the "latest" script to update as you wish. It will do a quick git-stash, git-pull, and git-stash-apply so you can get to the latest code w/o loosing local work.
+8. Run server with `./core3`
+
+9. you can run the "latest" script to update code and engine submodule as you wish. It will do a quick git-stash, git-pull, and git-stash-apply so you can get to the latest code w/o loosing local work.
 
 ## Setup MySQL
 
