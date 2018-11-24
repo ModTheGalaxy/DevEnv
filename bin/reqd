@@ -78,13 +78,14 @@ if [ -f $lua_ins ]; then
     done
   lua -v
 fi
-  
+
+echo
+echo "  ******** Downloading and Installing Eclipse ********"
+echo
+sudo apt-get install eclipse eclipse-cdt g++
 
 echo "Finalizing install and removing un-needed files."
 
-
-#sudo service mysql start
-#mysql -h<MYSQLHOST> -u<MYSQLUSER> -p<MYSQLPASSWORD> < sql/swgemu.sql
 cd $dir
 rm lua-5.3.3.tar.gz
 rm -rf lua-5.3.3
