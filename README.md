@@ -10,6 +10,16 @@ Special Thanks to lordkator for the initial FastTrack VM Image and the scripts t
 
 Install to a new VM and ensure you run `sudo apt-get update` and `sudo apt-get upgrade` BEFORE running the following scripts.
 
+For this exercise, use the following passwords:
+
+root: 12345678
+
+And setup the user to be:
+
+swgemu
+
+password: 123456
+
 ## Import scripts
 
 Copy this series of commands into a terminal: Installs git, downloads scripts and installs them. ## DO NOT LOGIN AS ROOT!!!!
