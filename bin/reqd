@@ -80,9 +80,9 @@ if [ -f $lua_ins ]; then
 fi
 
 echo
-echo "  ******** Downloading and Installing Eclipse ********"
-echo
-sudo apt-get install eclipse eclipse-cdt g++
+#echo "  ******** Downloading and Installing Eclipse ********"
+#echo
+#sudo apt-get install eclipse eclipse-cdt g++
 
 echo "Finalizing install and removing un-needed files."
 
