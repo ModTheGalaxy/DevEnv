@@ -4,7 +4,7 @@
 Special Thanks to lordkator for the initial FastTrack VM Image and the scripts that this repository is based on.
 ****************************************************************************************************************
 
-## Install Debian 9.x 64bit or Ubuntu 16.x
+## Install Debian 9.x 64bit
 
 ## Tested with debian 9.5 with cinnamon desktop
 
