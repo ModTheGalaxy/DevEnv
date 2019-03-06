@@ -6,7 +6,7 @@ Special Thanks to lordkator for the initial FastTrack VM Image and the scripts t
 
 ## Install Debian 9.x 64bit
 
-## Tested with debian 9.5 with cinnamon desktop
+## Tested with debian 9.8 with cinnamon desktop
 
 Install to a new VM and ensure you run `sudo apt-get update` and `sudo apt-get upgrade` BEFORE running the following scripts.
 
