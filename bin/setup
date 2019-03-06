@@ -162,11 +162,14 @@ fi
 echo "Have fun!"
 
 
-if yorn "Would you like to build the server now?"; then
+if yorn "Would you like to build and run the server now?"; then
 	cd ~/workspace/mtgserver/MMOCoreORB/
 	make -j8
+    cd ~/workspace/mtgserver/MMOCoreORB/bin
+    ./core3
 	exit 0
 fi
+
 
 
 exit 0
