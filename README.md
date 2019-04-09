@@ -8,6 +8,8 @@ Special Thanks to lordkator for the initial FastTrack VM Image and the scripts t
 
 ## Tested with debian 9.8 with cinnamon desktop
 
+## Blank MtG Server Debian 9.8 VM Image can be downloaded from [HERE.](https://drive.google.com/open?id=1ogBfI6-pSYgBzrO5fkviRaG7v2TKjHd2)
+
 Install to a new VM and ensure you run `sudo apt-get update` and `sudo apt-get upgrade` BEFORE running the following scripts.
 
 For this exercise, use the following passwords:
