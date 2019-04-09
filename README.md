@@ -10,7 +10,12 @@ Special Thanks to lordkator for the initial FastTrack VM Image and the scripts t
 
 ## Blank MtG Server Debian 9.8 VM Image can be downloaded from [HERE.](https://drive.google.com/open?id=1ogBfI6-pSYgBzrO5fkviRaG7v2TKjHd2)
 
-Install to a new VM and ensure you run `sudo apt-get update` and `sudo apt-get upgrade` BEFORE running the following scripts.
+Install a new VM in VirtualBox (or download the above link).
+
+##Impotant Note!!
+Please ensure you run `sudo apt-get update` and `sudo apt-get upgrade` BEFORE running the following scripts if using the MtG Base Image.
+
+Once complete
 
 For this exercise, use the following passwords:
 
@@ -25,6 +30,16 @@ password: 123456
 ## Import scripts
 
 Copy this series of commands into a terminal: Installs git, downloads scripts and installs them. ## DO NOT LOGIN AS ROOT!!!!
+
+And just to make sure you don't ignore it and do it anyway!!
+
+## DO NOT LOGIN AS ROOT!!!!
+YOU WILL BREAK THE INSTALL IF YOU DO THIS AS ROOT!!
+
+So..
+
+Copy this long series of commands into your console..
+
 
 ```
 sudo apt-get update && sudo apt-get install -y -q git && git clone https://github.com/ModTheGalaxy/DevEnv.git && cp -i ~/DevEnv/README.md ~/Documents && mkdir setup && mkdir run && cp -r ~/DevEnv/run/* ~/run/ && chmod -v +x ~/DevEnv/bin/* && cat ~/DevEnv/bin/pathto &>> ~/.bashrc
@@ -43,7 +58,7 @@ Once the above has completed, run the following from the command line.
    * Server configuration
    * For MySQL databases, passwords are [sudo]123456, then 123456 for the two DB's
    * Tre files (They will need to be copied or moved)
-   * Asks if you want to build the server.
+   * Asks if you want to build and run the server.
    
 4. Will build the server. However if it fails, use the following:
 
@@ -51,15 +66,29 @@ Once the above has completed, run the following from the command line.
 
 6. build server with `make -j8`
 
-7. cd ~/workspace/Core3/MMOCoreORB/bin
+7. While the server is building, is a good time to copy your tre files to the server. There is a shared folder set up in the VM.
 
-8. Run server with `./core3`
+8. On your host computers C drive, create a folder called c:\vmshare
 
-9. you can run the "latest" script to update code and engine submodule as you wish. It will do a quick git-stash, git-pull, and git-stash-apply so you can get to the latest code w/o loosing local work.
+9. Copy your tre files to this folder
+
+10. Open a new terminal and press the up arrow until you see this command: Then hit Enter.
+
+```sudo mount -t vboxsf vmshare ~/share/```
+
+11. The folder should now be available in the Debian file explorer, you should be able now, to drag the files actross to /tre
+
+12. Once the build process has finished, it should immediately launch the server. If it does not, then:
+
+13. cd ~/workspace/Core3/MMOCoreORB/bin
+
+14. Run server with `./core3`
+
+9. you can run the "latest" script to update code and engine submodule as you wish. It will do a quick git-stash, git-pull, and git-stash-apply so you can get to the latest code w/o losing local work.
 
 ## Setup MySQL
 
-You will need to edit the SQL database with workbench. Easiest way is to set it up from the command line.
+You will need to manually setup MySQL workbench. Easiest way is to set it up from the command line.
 
 From command line run:
 
