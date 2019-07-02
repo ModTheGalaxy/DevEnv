@@ -70,7 +70,8 @@ Once the above has completed, run the following from the command line.
 
 8. On your host computers C drive, create a folder called c:\vmshare
 
-9. Copy your tre files to this folder
+9. Copy your tre files to this folder, **YOU WILL CURRENTLY HAVE TO RENAME YOUR TRE FOLDER "TRE" AS IT IS CURRENTLY CALLED NIL **
+
 
 10. Open a new terminal and press the up arrow until you see this command: Then hit Enter.
 
