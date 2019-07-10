@@ -114,15 +114,15 @@ fi
 # Check for *.tre files
 ##############################################################################
 echo "TRE files"
-trepath=$(cd $rundir;echo 'print(TrePath)' | lua -l conf/config)
+#trepath=$(cd $rundir;echo 'print(TrePath)' | lua -l conf/config)
 
-mkdir -p $trepath > /dev/null 2>&1
+mkdir /home/swgemu/workspace/tre
 
-if [ -f "${trepath}/mtg_patch_001_appearance_01.tre" ]; then
-  echo "Looks like your tre files are properly loaded in ${trepath}"
+if [ -f "/home/swgemu/workspace/tre/mtg_patch_001_appearance_01.tre" ]; then
+  echo "Looks like your tre files are properly loaded in /home/swgemu/workspace/tre"
 else
   #ip=`/sbin/ifconfig eth0 | sed -n '/inet addr:/s/.*addr:\([^ ]*\)  .*/\1/p'`
-  echo "NOTE: You must make sure to copy all of the *.tre files from your game disk to: $trepath"
+  echo "NOTE: You must make sure to copy all of the *.tre files from your game disk to: /home/swgemu/workspace/tre"
  
 
   while ! yorn "Did you do this yet?"
@@ -132,7 +132,7 @@ else
   done
 
   if [ ! -f "${trepath}/mtg_patch_001_appearance_01.tre" ]; then
-    echo "ERROR: It appears you still do not have the *.tre files in ${trepath}"
+    echo "ERROR: It appears you still do not have the *.tre files in /home/swgemu/workspace/tre"
   fi
 fi
 
