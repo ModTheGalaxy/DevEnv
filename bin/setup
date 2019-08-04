@@ -113,33 +113,40 @@ fi
 ##############################################################################
 # Check for *.tre files
 ##############################################################################
+echo
+echo
 echo "TRE files"
-#trepath=$(cd $rundir;echo 'print(TrePath)' | lua -l conf/config)
+echo
+echo
 
 mkdir /home/swgemu/workspace/tre
 
+echo "NOTE: You must make sure to copy all of the *.tre files from your game disk to: /home/swgemu/workspace/tre"
+echo
+echo "You will not be able to run the server until you do."
+
+echo
+sleep 2
+echo
+echo "In a moment, you should be able to build the server."
+echo 
+echo "Should it fail, you can build it by doing the following:"
+echo 
+echo 
+echo "cd ~/workspace/mtgserver/MMOCoreORB/"
+echo
+echo "make -j8"
+echo
+
 if [ -f "/home/swgemu/workspace/tre/mtg_patch_001_appearance_01.tre" ]; then
-  echo "Looks like your tre files are properly loaded in /home/swgemu/workspace/tre"
+  echo "And if that works you can run the server with:"
+  echo "cd ~/workspace/mtgserver/MMOCoreORB/bin"
+  echo "./core3"
 else
-  #ip=`/sbin/ifconfig eth0 | sed -n '/inet addr:/s/.*addr:\([^ ]*\)  .*/\1/p'`
-  echo "NOTE: You must make sure to copy all of the *.tre files from your game disk to: /home/swgemu/workspace/tre"
- 
-
-  while ! yorn "Did you do this yet?"
-  do
-    echo "You need to do it before you can run the server."
-    sleep 1
-  done
-
-  if [ ! -f "${trepath}/mtg_patch_001_appearance_01.tre" ]; then
-    echo "ERROR: It appears you still do not have the *.tre files in /home/swgemu/workspace/tre"
-  fi
+  # Without the tre file's they can't finish a full build boot, warn them!
+  echo "NOTICE: Until you copy your *.tre files to /home/swgemu/workspace/tre you will not be able to run the server"
 fi
 
-##############################################################################
-# Give next steps
-# TODO ADD MORE INFO
-##############################################################################
 echo "Go for it"
 echo
 echo "In a moment, you should be able to build the server."
@@ -150,14 +157,7 @@ echo "cd ~/workspace/mtgserver/MMOCoreORB/"
 echo
 echo "make -j8"
 echo
-if [ -f "${trepath}/mtg_patch_001_appearance_01.tre" ]; then
-  echo "And if that works you can run the server with:"
-  echo "cd ~/workspace/mtgserver/MMOCoreORB/bin"
-  echo "./core3"
-else
-  # Without the tre file's they can't finish a full build boot, warn them!
-  echo "NOTICE: Until you copy your *.tre files to ${trepath} you will not be able to run the server"
-fi
+
 
 echo "Have fun!"
 
