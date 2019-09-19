@@ -158,10 +158,6 @@ echo
 echo "make -j8"
 echo
 
-
-echo "Have fun!"
-
-
 if yorn "Would you like to build and run the server now?"; then
 	cd ~/workspace/mtgserver/MMOCoreORB/
 	make -j8
@@ -169,7 +165,5 @@ if yorn "Would you like to build and run the server now?"; then
     ./core3
 	exit 0
 fi
-
-
-
 exit 0
+
