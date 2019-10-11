@@ -13,7 +13,7 @@ Special Thanks to lordkator for the initial FastTrack VM Image and the scripts t
 ## Latest MtG Tre files can be downloaded from [HERE.](https://drive.google.com/open?id=1yuJ26kdARCjXxpajgkv6EQaEEIanHD66)
 
 
-Install a new VM in VirtualBox (or download the above link).
+Install a new VM in VirtualBox (or download the above link and import appliance).
 
 ##Impotant Note!!
 Please ensure you run `sudo apt-get update` and `sudo apt-get upgrade` BEFORE running the following scripts if using the MtG Base Image.
