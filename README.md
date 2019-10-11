@@ -10,6 +10,9 @@ Special Thanks to lordkator for the initial FastTrack VM Image and the scripts t
 
 ## Blank MtG Server Debian 9.8 v2.0 VM Image can be downloaded from [HERE.](https://drive.google.com/open?id=1UrUAlKTqypyXA8kub4GwZsMOjTEUrnKc)
 
+## Latest MtG Tre files can be downloaded from [HERE.](https://drive.google.com/open?id=1yuJ26kdARCjXxpajgkv6EQaEEIanHD66)
+
+
 Install a new VM in VirtualBox (or download the above link).
 
 ##Impotant Note!!
