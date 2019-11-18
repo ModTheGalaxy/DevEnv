@@ -12,7 +12,7 @@ Special Thanks to lordkator for the initial FastTrack VM Image and the scripts t
 
 ## Latest MtG Tre files can be downloaded from [HERE.](https://drive.google.com/open?id=1yuJ26kdARCjXxpajgkv6EQaEEIanHD66)
 
-## [Full Istallation Guide.](https://github.com/ModTheGalaxy/mtgserver/wiki/Guide-DevEnv-Setup)
+## [Full Installation Guide.](https://github.com/ModTheGalaxy/mtgserver/wiki/Guide-DevEnv-Setup)
 
 
 Install a new VM in VirtualBox (or download the above link and import appliance).
