@@ -21,7 +21,7 @@ cd ~/workspace
     git clone --recurse-submodules https://github.com/ModTheGalaxy/mtgserver.git
 
 ##############################################################################
-echo "MySQL database - Enter password 123456 for all instances here!!!"
+echo "MySQL database - Enter password 123456 here!!!"
 ##############################################################################
 
 if  [[ ! "$(/usr/sbin/service mysql status)" =~ "start/running" ]]
