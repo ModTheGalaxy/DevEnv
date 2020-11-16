@@ -6,57 +6,19 @@
 #
 # Created: Sun Apr 21 16:40:55 UTC 2013
 #
-# Edited Mon Oct 7 2016 by Scurby <scurby@swgemu.com>
+# Edited Lasko - Nov 20
 #
-# Copy of 'getstarted' Edited for stand alone environments and various vm builds.
-#
-# TODO $USER
-
-logger -t setup "** setup **"
-
-##############################################################################
-# Common functions and setup
-##############################################################################
-yorn() {
-  echo -n -e "$@ Y\b"
-  read yorn
-  case $yorn in
-    [Nn]* ) return 1;;
-  esac
-  return 0
-}
-
-nory() {
-  echo -n -e "$@ N\b"
-  read yorn
-  case $yorn in
-    [Yy]* ) return 0;;
-  esac
-  return 1
-}
-gerrit_host='review.swgemu.com'
-gerrit_webport='8080'
-
 
 ##############################################################################
 # Clone repos and checkout a local branch of mtgserver origin/master
 ##############################################################################
 echo "Clone repos"
-mkdir -p ~/workspace > /dev/null 2>&1
+mkdir ~/workspace
 
 cd ~/workspace
-for i in mtgserver
-do
-  if [ -d $i/.git ]; then
-    echo "Repo $i is cloned in ~/workspace/$i"
-  else
-    echo "Cloning $i to ~/workspace/$i"
-    echo git clone https://github.com/ModTheGalaxy/mtgserver.git
-    git clone https://github.com/ModTheGalaxy/mtgserver.git
-  fi
-done
 
-
+    echo "Cloning MtGServer"
+    git clone --recurse-submodules https://github.com/ModTheGalaxy/mtgserver.git
 
 ##############################################################################
 echo "MySQL database - Enter password 123456 for all instances here!!!"
@@ -74,40 +36,6 @@ else
   sudo ~/DevEnv/bin/./createdb swgemu swgemu 123456      # See createdb script in /home/bin
   echo "Restore blank swgemu database to mysql"
   sudo mysql -p123456 -e source -e ~/workspace/mtgserver/MMOCoreORB/sql/swgemu.sql;
-  sudo ~/DevEnv/bin/./createdb mantis swgemu 123456      # See createdb script in /home/bin
-  echo "Restore blank mantis database to mysql"
-  sudo mysql -e source -e ~/workspace/mtgserver/MMOCoreORB/sql/mantis.sql;
-fi
-
-##############################################################################
-# Ask them to configure their server options
-# TODO Edit tre path as needed
-##############################################################################
-echo "Server configuration"
-rundir=~/workspace/mtgserver/MMOCoreORB/bin/
-runcfg=${rundir}conf/config.lua
-runsrc=~/workspace/mtgserver/MMOCoreORB/bin/conf/config.lua
-if [ -f $runcfg ]; then
-  echo "$runcfg already setup"
-else
-  sed -e '/TrePath/s!"[^"]*"!"/home/swgemu/workspace/tre"!' $runsrc > $runcfg
-  echo "By default ALL zones are enabled"
-  if yorn "Would you like to edit the default configuration?"; then
-    while :
-    do
-      kate $runcfg
-      echo "Checking config syntax..."
-      if zones=$(cd $rundir;echo 'for k,v in pairs(ZonesEnabled) do io.write(v .. " ") end' | lua -l DevEnv/conf/config); then
-	echo "SUCCESS - $runcfg passed lua parser"
-	echo "Zones enabled: $zones"
-	break
-      else
-	echo "You have a syntax error, please fix it before continuing."
-	echo -n "Press <ENTER> to edit the config again: "
-	read junk
-      fi
-    done
-  fi
 fi
 
 ##############################################################################
@@ -124,30 +52,6 @@ mkdir /home/swgemu/workspace/tre
 echo "NOTE: You must make sure to copy all of the *.tre files from your game disk to: /home/swgemu/workspace/tre"
 echo
 echo "You will not be able to run the server until you do."
-
-echo
-sleep 2
-echo
-echo "In a moment, you should be able to build the server."
-echo 
-echo "Should it fail, you can build it by doing the following:"
-echo 
-echo 
-echo "cd ~/workspace/mtgserver/MMOCoreORB/"
-echo
-echo "make -j8"
-echo
-
-if [ -f "/home/swgemu/workspace/tre/mtg_patch_001_appearance_01.tre" ]; then
-  echo "And if that works you can run the server with:"
-  echo "cd ~/workspace/mtgserver/MMOCoreORB/bin"
-  echo "./core3"
-else
-  # Without the tre file's they can't finish a full build boot, warn them!
-  echo "NOTICE: Until you copy your *.tre files to /home/swgemu/workspace/tre you will not be able to run the server"
-fi
-
-echo "Go for it"
 echo
 echo "In a moment, you should be able to build the server."
 echo 
@@ -157,13 +61,16 @@ echo "cd ~/workspace/mtgserver/MMOCoreORB/"
 echo
 echo "make -j8"
 echo
+echo
+echo "In a moment, the server will build and then run."
+echo 
+echo "Now would be a good time to copy the tre files to /home/swgemu/workspace/tre"
+echo 
+sleep 4
 
-if yorn "Would you like to build and run the server now?"; then
-	cd ~/workspace/mtgserver/MMOCoreORB/
-	make -j8
-    cd ~/workspace/mtgserver/MMOCoreORB/bin
-    ./core3
-	exit 0
-fi
-exit 0
+cd ~/workspace/mtgserver/MMOCoreORB/make -j8
+cd ~/workspace/mtgserver/MMOCoreORB/bin
+./core3
+
+
 
