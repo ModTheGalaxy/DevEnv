@@ -68,7 +68,8 @@ echo "Now would be a good time to copy the tre files to /home/swgemu/workspace/t
 echo 
 sleep 4
 
-cd ~/workspace/mtgserver/MMOCoreORB/make -j8
+cd ~/workspace/mtgserver/MMOCoreORB/
+make -j8
 cd ~/workspace/mtgserver/MMOCoreORB/bin
 ./core3
 
